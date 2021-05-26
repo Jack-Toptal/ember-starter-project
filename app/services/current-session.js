@@ -11,7 +11,7 @@ export default Service.extend({
     if (this.get('session.isAuthenticated')) {
       return this.get('store')
         .queryRecord('user', { me: true })
-        .then(user => {
+        .then((user) => {
           this.set('user', user);
           this.get('session').set('data.accountId', user.get('account.id'));
         })

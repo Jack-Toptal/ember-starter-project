@@ -13,7 +13,9 @@ export default Route.extend(AuthenticatedRouteMixin, {
 
     $.ajax({
       type: 'PATCH',
-      url: `${questionAdapter.urlForCreateRecord('question')}/${model.get('id')}/viewed`
+      url: `${questionAdapter.urlForCreateRecord('question')}/${model.get(
+        'id'
+      )}/viewed`
     });
   }
 });

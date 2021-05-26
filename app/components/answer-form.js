@@ -22,7 +22,7 @@ export default Component.extend({
     this.set('answer', this.store.createRecord('answer'));
   },
 
-  saveAnswer: task(function*() {
+  saveAnswer: task(function* () {
     const answer = this.get('answer');
     answer.set('question', this.get('question'));
     try {

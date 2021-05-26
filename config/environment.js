@@ -1,12 +1,12 @@
-"use strict";
+'use strict';
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   let ENV = {
-    modulePrefix: "expert-advice-front",
+    modulePrefix: 'expert-advice-front',
     environment,
-    rootURL: "/",
-    locationType: "auto",
-    apiNamespace: "api/v1",
+    rootURL: '/',
+    locationType: 'auto',
+    apiNamespace: 'api/v1',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -24,38 +24,38 @@ module.exports = function(environment) {
     }
   };
 
-  if (environment === "development") {
+  if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
 
-    ENV.serverURL = "http://localhost:3000";
-    ENV.webURL = "http://localhost:4200";
-    ENV.webSocketURL = "ws://localhost:3000/cable";
+    ENV.serverURL = 'http://localhost:3000';
+    ENV.webURL = 'http://localhost:4200';
+    ENV.webSocketURL = 'ws://localhost:3000/cable';
   }
 
-  if (environment === "test") {
+  if (environment === 'test') {
     ENV.serverURL = '';
 
     // Testem prefers this...
-    ENV.locationType = "none";
+    ENV.locationType = 'none';
 
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
-    ENV.APP.rootElement = "#ember-testing";
+    ENV.APP.rootElement = '#ember-testing';
     ENV.APP.autoboot = false;
   }
 
-  if (environment === "production") {
+  if (environment === 'production') {
     // here you can enable a production-specific feature
-    ENV.serverURL= "https://powerful-cliffs-02717.herokuapp.com";
+    ENV.serverURL = 'https://powerful-cliffs-02717.herokuapp.com';
   }
 
-  ENV.apiBaseURL = ENV.serverURL + "/" + ENV.apiNamespace;
+  ENV.apiBaseURL = ENV.serverURL + '/' + ENV.apiNamespace;
 
   return ENV;
 };

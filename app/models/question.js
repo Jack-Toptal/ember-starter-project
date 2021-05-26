@@ -10,16 +10,16 @@ export default DS.Model.extend({
   views: DS.attr('number'),
   slug: DS.attr('string'),
 
-  tagsArray: computed('tags', function() {
+  tagsArray: computed('tags', function () {
     if (this.get('tags')) {
       return this.get('tags').split(',');
     }
     return [];
   }),
 
-  loadedAnswers: computed('answers.@each.hasDirtyAttributes', function() {
+  loadedAnswers: computed('answers.@each.hasDirtyAttributes', function () {
     return this.get('answers').filter(
-      answer => !answer.get('hasDirtyAttributes')
+      (answer) => !answer.get('hasDirtyAttributes')
     );
   })
 });

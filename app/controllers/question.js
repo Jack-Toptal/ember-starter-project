@@ -5,7 +5,7 @@ import { task } from 'ember-concurrency';
 export default Controller.extend({
   currentSession: inject(),
 
-  deleteQuestion: task(function*() {
+  deleteQuestion: task(function* () {
     const question = this.get('model');
 
     yield question.destroyRecord();

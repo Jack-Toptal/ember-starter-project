@@ -13,10 +13,15 @@ export default Controller.extend({
       this.set('initialSearchValue', this.get('filter'));
     },
     filter(query) {
-      debounce(this, 'setProperties', {
-        filter: query,
-        page: 1
-      }, 300);
+      debounce(
+        this,
+        'setProperties',
+        {
+          filter: query,
+          page: 1
+        },
+        300
+      );
     }
   }
 });

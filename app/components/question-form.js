@@ -6,7 +6,7 @@ export default Component.extend({
   question: null,
   onSuccess() {},
 
-  saveQuestion: task(function*() {
+  saveQuestion: task(function* () {
     const question = this.get('question');
     try {
       yield question.save();
