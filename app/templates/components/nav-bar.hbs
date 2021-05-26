@@ -1,22 +1,25 @@
-{{#bs-navbar type="dark" backgroundColor="dark" class="fixed-top shadow flex-md-nowrap" collapsed=collapsed onCollapse=(action (mut collapsed) true) onExpand=(action (mut collapsed) false) as |navbar|}}
+{{#bs-navbar type="light" backgroundColor="light" class="fixed-top flex-md-nowrap" collapsed=collapsed onCollapse=(action (mut collapsed) true) onExpand=(action (mut collapsed) false) as |navbar|}}
   <div class="navbar-header">
     {{navbar.toggle}}
-    {{#link-to "dashboard" class="navbar-brand"}}EmberStarterProject{{/link-to}}
+    {{#link-to "index" (query-params filter='') class="navbar-brand"}}Expert Advice{{/link-to}}
   </div>
   {{#navbar.content}}
     {{#navbar.nav class="ml-auto" as |nav|}}
       {{#if currentSession.isAuthenticated}}
-        {{#nav.dropdown as |dd|}}
-          {{#dd.toggle}}{{currentSession.user.email}} <span class="caret"></span>{{/dd.toggle}}
-          {{#dd.menu as |ddm|}}
-            {{#ddm.item}}{{#ddm.link-to "dashboard"}}Dashboard{{/ddm.link-to}}{{/ddm.item}}
-            <div class="dropdown-divider"></div>
-            {{#ddm.item}}<a href="#" class="dropdown-item" {{action 'logout'}}>Sign out</a>{{/ddm.item}}
-          {{/dd.menu}}
-        {{/nav.dropdown}}
+        {{#nav.item class="navbar-text"}}
+          {{currentSession.user.email}}
+        {{/nav.item}}
+        {{nav.item class="nav-item__divider"}}
+        {{#nav.item}}
+          <a class="nav-link" {{action 'logout'}} href="#">Logout</a>
+        {{/nav.item}}
       {{else}}
         {{#nav.item}}
-          {{#nav.link-to "login" class="btn btn-primary"}}Login{{/nav.link-to}}
+          {{#nav.link-to "login"}}Login{{/nav.link-to}}
+        {{/nav.item}}
+        {{nav.item class="nav-item__divider"}}
+        {{#nav.item}}
+          {{#nav.link-to "register"}}Register{{/nav.link-to}}
         {{/nav.item}}
       {{/if}}
     {{/navbar.nav}}

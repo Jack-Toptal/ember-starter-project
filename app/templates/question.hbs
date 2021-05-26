@@ -1,0 +1,63 @@
+<div class="col-12 pb-4">
+  <div class="row">
+    <div class="col-2 text-right">
+      <strong>Views</strong>
+    </div>
+    <div class="col-10">
+      <strong>Question</strong>
+    </div>
+  </div>
+
+  <div class="row pb-4">
+    <div class="col-2 text-right align-middle">
+      {{views-summary model.views}}
+    </div>
+
+    <div class="col-7">
+      {{#link-to "question" model.slug}}
+        {{model.title}}
+      {{/link-to}}
+
+      {{question-tags question=model}}
+    </div>
+
+    <div class="col-3 text-right">
+      {{#if (eq model.user currentSession.user)}}
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          {{#link-to "edit-question" model.id class="btn btn-sm btn-secondary pb-1"}}Edit{{/link-to}}
+          <a href="#" class="btn btn-sm btn-danger {{if deleteQuestion.isRunning "disabled"}}" {{action (perform deleteQuestion)}}>
+            {{if deleteQuestion.isRunning "Deleting..." "Delete"}}
+          </a>
+        </div>
+      {{/if}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-10 offset-md-2">
+      <p>{{model.description}}</p>
+    </div>
+  </div>
+
+  {{#if model.loadedAnswers.length}}
+    {{#each model.loadedAnswers as |answer|}}
+      <div class="row">
+        <div class="col-12 col-md-10 offset-md-2">
+          <div class="alert alert-secondary">
+            {{answer.body}}
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  {{/if}}
+
+  {{#if currentSession.isAuthenticated}}
+    <div class="row">
+      <div class="col-12 col-md-10 offset-md-2">
+        <h5>Answer</h5>
+        {{answer-form question=model}}
+      </div>
+    </div>
+  {{/if}}
+</div>
+

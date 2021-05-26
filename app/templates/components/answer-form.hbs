@@ -1,0 +1,11 @@
+{{#bs-form formLayout="vertical" disabled=saveAnswer.isRunning onSubmit=(perform saveAnswer) model=answer as |form|}}
+  {{form.element
+    controlType="textarea"
+    label="Body"
+    property="body"
+    customError=(attribute-errors answer.errors.body)
+    class=(if (attribute-errors answer.errors.body) "has-error")
+  }}
+
+  {{bs-button defaultText=(if saveAnswer.isRunning "Posting..." "Post an answer") type="primary" buttonType="submit"}}
+{{/bs-form}}

@@ -1,0 +1,9 @@
+<div class="col-12 col-md-10 offset-md-2">
+  <h5>Edit question</h5>
+
+  {{question-form
+    question=model
+    saveButtonText="Update question"
+    onSuccess=(action 'onQuestionUpdated')
+  }}
+</div>

@@ -15,8 +15,8 @@
         <label for="exampleInputPassword1">Password</label>
         {{input value=model.password type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"}}
       </div>
-      <button type="submit" class="btn btn-primary" {{action 'signup'}}>Sign up</button>
-      or {{#link-to "signup"}}Log in{{/link-to}}
+      <button type="submit" class="btn btn-primary" {{action "register"}}>Register</button>
+      or {{#link-to "login"}}Log in{{/link-to}}
 
     </form>
   </div>

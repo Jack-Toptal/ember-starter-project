@@ -1,0 +1,9 @@
+<div class="col-12 col-md-10 offset-md-2">
+  <h5>Ask a question</h5>
+
+  {{question-form
+    question=question
+    saveButtonText="Post a question"
+    onSuccess=(action 'onQuestionCreated')
+  }}
+</div>
