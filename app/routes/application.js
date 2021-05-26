@@ -1,9 +1,9 @@
-import Route from "@ember/routing/route";
-import { inject } from "@ember/service";
-import ApplicationRouteMixin from "ember-simple-auth/mixins/application-route-mixin";
+import Route from '@ember/routing/route';
+import { inject } from '@ember/service';
+import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
 
 export default Route.extend(ApplicationRouteMixin, {
-  routeAfterAuthentication: "dashboard",
+  routeAfterAuthentication: 'index',
   session: inject(),
   currentSession: inject(),
   // routeAfterAuthentication: null, // Don't trigger transition after authenticate()
@@ -15,12 +15,12 @@ export default Route.extend(ApplicationRouteMixin, {
     this._loadCurrentUser();
   },
   _loadCurrentUser() {
-    return this.get("currentSession").load();
+    return this.get('currentSession').load();
   },
   actions: {
     logout() {
-      this.get("session").invalidate();
-      this.get("currentSession").nullify();
+      this.get('session').invalidate();
+      this.get('currentSession').nullify();
     }
   }
 });

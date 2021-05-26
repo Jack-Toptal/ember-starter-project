@@ -1,0 +1,25 @@
+{{#bs-form formLayout="vertical" disabled=saveQuestion.isRunning onSubmit=(perform saveQuestion) model=question as |form|}}
+  {{form.element
+    controlType="text"
+    label="Title"
+    property="title"
+    customError=(attribute-errors question.errors.title)
+    class=(concat "question-form__title" (if (attribute-errors question.errors.title) "has-error"))
+  }}
+  {{form.element
+    controlType="textarea"
+    label="Description"
+    property="description"
+    customError=(attribute-errors question.errors.description)
+    class=(concat "question-form__description" (if (attribute-errors question.errors.description) "has-error"))
+  }}
+  {{form.element
+    controlType="text"
+    label="Tags (Separatedby comma)"
+    property="tags"
+    customError=(attribute-errors question.errors.tags)
+    class=(if (attribute-errors question.errors.tags) "has-error")
+  }}
+
+  {{bs-button defaultText=(if saveQuestion.isRunning "Saving..." saveButtonText) type="primary" class="question-form__submit" buttonType="submit"}}
+{{/bs-form}}

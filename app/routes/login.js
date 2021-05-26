@@ -1,15 +1,15 @@
-import Route from "@ember/routing/route";
-import { inject as service } from "@ember/service";
+import Route from '@ember/routing/route';
+import { inject } from '@ember/service';
 
 export default Route.extend({
-  session: service(),
+  session: inject(),
   actions: {
     login(email, password) {
-      this.get("session")
-        .authenticate("authenticator:oauth2", email, password)
-        .then(() => this.transitionTo("dashboard"))
+      this.get('session')
+        .authenticate('authenticator:oauth2', email, password)
+        .then(() => this.transitionTo('index'))
         .catch(() => {
-          this.controller.set("errorMessage", "Invalid login.");
+          this.controller.set('errorMessage', 'Invalid login.');
         });
     }
   }

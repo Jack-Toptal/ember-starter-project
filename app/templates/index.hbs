@@ -1,0 +1,49 @@
+<div class="col-md-10 offset-md-2 pb-4">
+  <h1>Expert Advice</h1>
+  <h2>Get answers to difficult questions</h2>
+
+  <div class="row">
+    <div class="col-md-8 col-6">
+      {{input value=initialSearchValue placeholder="Search" class="form-control" key-up=(action "filter")}}
+    </div>
+
+    <div class="col-md-4 col-3">
+      {{#if session.isAuthenticated}}
+        {{#link-to "create-question" class="btn btn-primary"}}Ask a question{{/link-to}}
+      {{/if}}
+    </div>
+  </div>
+</div>
+
+<div class="col-12 pb-4">
+  <div class="row">
+    <div class="col-2 text-right">
+      <strong>Views</strong>
+    </div>
+    <div class="col-10">
+      <strong>Question</strong>
+    </div>
+  </div>
+
+  {{#each model as |question|}}
+    <div class="row pb-4">
+      <div class="col-2 text-right align-middle">
+        {{views-summary question.views}}
+      </div>
+
+      <div class="col-10">
+        {{#link-to "question" question.slug}}
+          {{question.title}}
+        {{/link-to}}
+        {{question-tags question=question}}
+      </div>
+    </div>
+  {{/each}}
+
+  <div class="row">
+    <div class="col-10 offset-2">
+      {{page-numbers page=page totalPages=model.meta.total-pages}}
+    </div>
+  </div>
+</div>
+

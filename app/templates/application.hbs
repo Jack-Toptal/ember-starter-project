@@ -1,5 +1,9 @@
-{{nav-bar}}
+{{nav-bar collapsed=true}}
 
 <div class="h-screen container-fluid">
-  {{outlet}}
+  <div class="row h-screen">
+    <main role="main" class="col-md-10">
+      {{outlet}}
+    </main>
+  </div>
 </div>

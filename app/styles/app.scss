@@ -5,6 +5,24 @@ body, .h-screen {
   height: 100vh;
 }
 
-.form-group.has-error input {
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.form-group.has-error label {
+  color: #dc3545;
+}
+
+.form-group.has-error input, .form-group.has-error textarea {
   border-color: #dc3545;
+}
+
+.nav-item__divider {
+  border-left: 1px solid #cacaca;
+  margin: 0 0.5rem;
 }
